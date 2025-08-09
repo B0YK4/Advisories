@@ -13,13 +13,13 @@ This vulnerability allows attackers to bypass the same-origin policy, a critical
 
 **Step 1**: Create a subdomain or spoof an Origin header with any URL containing `<Host-Name>`. For instance:
 
-•        `https://attacker-<Host-Name>.com`
-•        `https://<Host-Name>.Attacker.com`
+• `https://attacker-<Host-Name>.com`
+• `https://<Host-Name>.attacker.com`
 
 **Step 2**: Send a GET request to the API endpoint with the manipulated Origin header
 
-![[Pasted image 20250809014510.png]]
+![](./Pasted%20image%2020250809014510.png)
 
 **Step 3**: Observe the server’s response. If the CORS misconfiguration is present, the server will respond with Access-Control-Allow-Origin set to the attacker-controlled origin, allowing cross-origin requests from the malicious domain.
 
-![[Pasted image 20250809014518.png]]
+![](./Pasted%20image%2020250809014518.png)

@@ -12,9 +12,10 @@ Authenticate with admin credentials to get a JWT token.
 
 Make a GET request to this API endpoint `https://<Host-Name>:444/Api/DataDirectory` with the path of the directory to list content:
 
-![[Pasted image 20250809013358.png]]
+![](./Pasted%20image%2020250809013358.png)
 
-![[Pasted image 20250809013412.png]]
+![](./Pasted%20image%2020250809013412.png)
 
-When providing not exist directory It get created.
-![[Pasted image 20250809013436.png]]
+When providing a non-existent directory it gets created.
+
+![](./Pasted%20image%2020250809013436.png)

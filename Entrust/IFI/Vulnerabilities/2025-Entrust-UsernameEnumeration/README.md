@@ -18,46 +18,42 @@ Such discrepancies allow attackers to enumerate valid usernames, which can be le
 
 ## Proof of Concept
 
-**Login:** 
+**Login:**
 
-Login into the application and intercept the login request with burpsuite  **Set up Burp Suite Intruder**:
+Log into the application and intercept the login request with Burp Suite.  
+**Set up Burp Suite Intruder:**
 
-1.     In Burp Suite, navigate to the Intruder tool and set the target URL to `https://<HostName>:444/api/OAuthTokens/`.
+1. In Burp Suite, open **Intruder** and set the target URL to `https://<HostName>:444/api/OAuthTokens/`.
+2. Define the HTTP **POST** request.
+3. Add a **position** on the username field and select the **Sniper** attack type.
 
-2.     Define the HTTP POST request and add position to brute force the username value 3. Select the **Sniper** attack type.
+![](./Pasted%20image%2020250809014015.png)
 
-![[Pasted image 20250809014015.png]] 
+**Load Payloads**
 
-**Load Payloads**:
+- In the **Payloads** tab, load a username wordlist (e.g., `admin`, `test`, `user1`).  
+  Example list:  
+  https://raw.githubusercontent.com/danielmiessler/SecLists/refs/heads/master/Usernames/cirtdefault-usernames.txt
 
-•   Under the "Payloads" tab, load a wordlist of common usernames (e.g., admin, test, user1). You can use this  list:
+**Start Attack**
 
-https://raw.githubusercontent.com/danielmiessler/SecLists/refs/heads/master/Usernames/cirtdefault-usernames.txt  
+- Start the attack and let Intruder iterate through usernames.
 
-**Start Attack:**
+**Analyze Responses**
 
-- Begin the attack and allow Burp Suite to iterate through the usernames.
+- Watch for discrepancies in the response body:
 
-**Analyze Responses**:
+- **"UserNotFoundException"** → invalid username.  
+![](./Pasted%20image%2020250809014034.png)
 
-- Observe the responses returned for each username attempt.
+- **"InvalidUsernameOrPasswordException"** → valid username with wrong password.  
+![](./Pasted%20image%2020250809014052.png)
 
-- Look for discrepancies in the response body, specifically:
+**Filter Results**
 
-- **"UserNotFoundException"** indicates an invalid username.  
+- Use **Filter** to search for `InvalidUsernameOrPasswordException` (or filter by **Content length** `627`) to surface valid usernames.  
+![](./Pasted%20image%2020250809014111.png)
 
-![[Pasted image 20250809014034.png]]
+**Usernames found:**
 
-o   **"InvalidUsernameOrPasswordException"** suggests a valid username with an incorrect password.
-
-![[Pasted image 20250809014052.png]]
-
-**Filter Results**:
-
-•        Use the filter option in Burp Suite to search for **InvalidUsernameOrPasswordException** in the responses to identify valid usernames. Or you can filter by content length: **627**
-
-![[Pasted image 20250809014111.png]]
-
-Usernames found:
-
-![[Pasted image 20250809014131.png]]
+![](./Pasted%20image%2020250809014131.png)

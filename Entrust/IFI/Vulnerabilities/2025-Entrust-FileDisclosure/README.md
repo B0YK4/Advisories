@@ -9,9 +9,12 @@ This vulnerability allows an attacker to read arbitrary files on the target syst
 
 ## Proof of Concept
 
-**Setp1:** Authenticate to this API endpoint  `https://<Host-Name>:444/api/OAuthTokens/` with banker or admin account to get a JWT token: 
-**Setp2:** Make a request to this API endpoint `https://<Host-Name>:444/Api/DataDirectory/Image?path=`  with the path of a file you want to read and add the custom header **Jwt** value. 
-![[Pasted image 20250808231854.png]]
+**Step 1:** Authenticate to this API endpoint `https://<Host-Name>:444/api/OAuthTokens/` with a banker or admin account to get a JWT token.
 
-We were able to read also the database backup and restore it.
-![[Pasted image 20250808232518.png]]
+**Step 2:** Make a request to this API endpoint `https://<Host-Name>:444/Api/DataDirectory/Image?path=` with the path of a file you want to read and add the custom header `Jwt: <token>`.
+
+![](./Pasted%20image%2020250808231854.png)
+
+We were able to read the database backup and restore it.
+
+![](./Pasted%20image%2020250808232518.png)
