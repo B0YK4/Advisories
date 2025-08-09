@@ -50,16 +50,16 @@ Login with any admin account and Go to `https://<Host>/#/Administration/Template
 [fileoff]
 ```
 
-![](./Pasted%20image%2020250809014814.png)
+![](./images/Pasted%20image%2020250809014814.png)
 
 Go to `https://<Host-Name>/#/Administration/CardFormatLinks` and assign the template to a card format:
 
-![](./Pasted%20image%2020250809014825.png)
+![](./images/Pasted%20image%2020250809014825.png)
 
 Go to `https://<Host-Name>/#/CardActions/PrintSamplePINMailer` and print the card format PIN Mailer to write the file on the disk:
 
-![](./Pasted%20image%2020250809015003.png)
+![](./images/Pasted%20image%2020250809015003.png)
 
 Now you can access the web shell at `https://<Host-Name>/shell.asp` and verify code execution on the server:
 
-![](./Pasted%20image%2020250809023803.png)
+![](./images/Pasted%20image%2020250809023803.png)

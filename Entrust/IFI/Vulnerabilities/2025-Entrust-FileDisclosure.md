@@ -13,8 +13,8 @@ This vulnerability allows an attacker to read arbitrary files on the target syst
 
 **Step 2:** Make a request to this API endpoint `https://<Host-Name>:444/Api/DataDirectory/Image?path=` with the path of a file you want to read and add the custom header `Jwt: <token>`.
 
-![](./Pasted%20image%2020250808231854.png)
+![](./images/Pasted%20image%2020250808231854.png)
 
 We were able to read the database backup and restore it.
 
-![](./Pasted%20image%2020250808232518.png)
+![](./images/Pasted%20image%2020250808232518.png)

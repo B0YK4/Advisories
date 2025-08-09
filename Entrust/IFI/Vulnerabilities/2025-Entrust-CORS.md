@@ -18,8 +18,8 @@ This vulnerability allows attackers to bypass the same-origin policy, a critical
 
 **Step 2**: Send a GET request to the API endpoint with the manipulated Origin header
 
-![](./Pasted%20image%2020250809014510.png)
+![](./images/Pasted%20image%2020250809014510.png)
 
 **Step 3**: Observe the server’s response. If the CORS misconfiguration is present, the server will respond with Access-Control-Allow-Origin set to the attacker-controlled origin, allowing cross-origin requests from the malicious domain.
 
-![](./Pasted%20image%2020250809014518.png)
+![](./images/Pasted%20image%2020250809014518.png)

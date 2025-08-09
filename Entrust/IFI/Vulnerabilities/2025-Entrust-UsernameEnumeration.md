@@ -27,7 +27,7 @@ Log into the application and intercept the login request with Burp Suite.
 2. Define the HTTP **POST** request.
 3. Add a **position** on the username field and select the **Sniper** attack type.
 
-![](./Pasted%20image%2020250809014015.png)
+![](./images/Pasted%20image%2020250809014015.png)
 
 **Load Payloads**
 
@@ -44,16 +44,16 @@ Log into the application and intercept the login request with Burp Suite.
 - Watch for discrepancies in the response body:
 
 - **"UserNotFoundException"** → invalid username.  
-![](./Pasted%20image%2020250809014034.png)
+![](./images/Pasted%20image%2020250809014034.png)
 
 - **"InvalidUsernameOrPasswordException"** → valid username with wrong password.  
-![](./Pasted%20image%2020250809014052.png)
+![](./images/Pasted%20image%2020250809014052.png)
 
 **Filter Results**
 
 - Use **Filter** to search for `InvalidUsernameOrPasswordException` (or filter by **Content length** `627`) to surface valid usernames.  
-![](./Pasted%20image%2020250809014111.png)
+![](./images/Pasted%20image%2020250809014111.png)
 
 **Usernames found:**
 
-![](./Pasted%20image%2020250809014131.png)
+![](./images/Pasted%20image%2020250809014131.png)
